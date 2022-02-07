@@ -4,7 +4,7 @@ When ERC20 tokens are sent to this contract, the only way to withdraw them is to
 There's no ways for the owner address to withdraw coins if the 3 others addresses haven't executed their unlock functions, and those 3 addresses won't be able to remove tokens at any time.
 
 /!\ BEFORE DEPLOYING THE CONTRACT /!\
-- Replace the 3 0x000000000000000000000000000000 sigAddresses by 3 public addresses you have acces to, these 3 addresses will be needed to unlock your tokens
+- Replace the 3 0x000000000000000000000000000000 sigAddresses by 3 public addresses you have access to, these 3 addresses will be needed to unlock your tokens
 - Optional : Go to the bottom of the contract at the withdrawToken function and remove the // before the lockAll(); if you want the contract to lock again after a withdraw, if you plan to store multiple coins in the contract, leave it as it is.
 
 Now you can deploy it
