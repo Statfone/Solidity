@@ -50,7 +50,7 @@ contract MultiDexSwap {
 
     //This will be the function to use to perform a multi dex swap
     //The function works like this, enter amountIn and minAmountOut, a path of 3 tokens then the addresses of the routers of the dex In and Out
-    //Then the tokens will be swapped like this : Path[0] to Path[1] on dexIn, then Path[1] to Path[2] on dexOut
+    //Then the tokens will be swapped like this : TokenIn to TokenSwap on dexIn, then TokenSwap to TokenOut on dexOut
     function multiDexSwap (uint256 amountIn, uint256 minAmountOut, address TokenIn, address TokenSwap, address TokenOut, address dexIn, address dexOut) external OwnerOnlyFunction {
         //First we will get the current amount out at the time the transaction is mined
         uint256 currentAmountOut;
