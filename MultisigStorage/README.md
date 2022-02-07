@@ -10,6 +10,7 @@ There's no ways for the owner address to withdraw coins if the 3 others addresse
 Now you can deploy it
 
 /!\ BEFORE SENDING MASSIVE AMOUNTS OF COINS TO THE CONTRACT, TEST WITH SMALL AMOUNTS TO VERIFY YOU SET UP EVERYTHING CORRECTLY /!\ 
+
 The contract is composed of different functions:
 
 unlockSig1,2,3() : These 3 functions are used to unlock the withdrawal of tokens, you will have to call the 3 with the corresponding addresses before a withdrawal or the tokens won't be transfered
