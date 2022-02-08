@@ -55,9 +55,12 @@ contract MultisigStorage {
         _;
     }
 
-    //Reminder : DO NOT send gas tokens to the contract, use wrapped versions instead if you need to
+    
 
     //Here are the functions to unlock the multisig, you have to execute each function with the corresponding address to be able to withdraw tokens from the contract
+    
+    //Needed to receive gas tokens
+    receive() external payable {}
 
     function unlockSig1() public requireSig1 {
         sig1Lock = 0;
@@ -87,6 +90,17 @@ contract MultisigStorage {
             IERC20 tokenContract = IERC20(tokenContractAddress);
             tokenContract.transfer(msg.sender, amount);
 
+            //Optional : remove the // below to lock the 3 sig again automatically after a withdrawal, it can be boring if you need to withdraw multiple tokens at the same time
+            //lockAll();
+        }
+    }
+    
+    //The function to use if you want to withdraw gas token from the contract
+    //The function have to be executed by the owner and the 3 sigs have to be unlocked or else it won't work
+    function withdrawGasToken(uint256 amount) public OwnerOnlyFunction {
+        if (sig1Lock == 0 && sig2Lock == 0 && sig3Lock == 0)
+        {
+            msg.sender.transfer(amount);
             //Optional : remove the // below to lock the 3 sig again automatically after a withdrawal, it can be boring if you need to withdraw multiple tokens at the same time
             //lockAll();
         }
