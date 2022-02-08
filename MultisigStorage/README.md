@@ -11,6 +11,8 @@ Now you can deploy it
 
 /!\ BEFORE SENDING MASSIVE AMOUNTS OF COINS TO THE CONTRACT, TEST WITH SMALL AMOUNTS TO VERIFY YOU SET UP EVERYTHING CORRECTLY /!\ 
 
+The contract now works with both ERC20 and gas tokens, just use WithdrawToken() to withdraw ERC20 and WithdrawGasToken() to withdraw the gas token. Both functions need the 3 sigs and to be called by the owner to send coins.
+
 The contract is composed of different functions:
 
 unlockSig1,2,3() : These 3 functions are used to unlock the withdrawal of tokens, you will have to call the 3 with the corresponding addresses before a withdrawal or the tokens won't be transfered
